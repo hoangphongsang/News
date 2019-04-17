@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="model.*" %>
+<%@ page import="controller.*" %>
+<%@ page import="view.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -130,115 +135,50 @@
 	<!-- END #fh5co-header -->
 	<div class="container-fluid">
 		<div class="row fh5co-post-entry">
+		 <% ArrayList<Datamodel> list = (ArrayList<Datamodel>)request.getAttribute("laydata");
+		 	if(list != null)
+		 	for (int i=1;i<= list.size();i++)
+		 	{ 
+		 %>
 			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 				<figure>
-					<a href="single.html"><img src="images/pic1.jpg" alt="Image" class="img-responsive"></a>
+					<a href="chitiet?id=<%=list.get(i-1).getId() %>">
+					<img  src="<%=list.get(i-1).getLinkanh()%>" alt="Red dot"  class="img-responsive"/>
+					</a>
 				</figure>
-				<span class="fh5co-meta"><a href="single.html">Food &amp; Drink</a></span>
-				<h2 class="fh5co-article-title"><a href="chitiet.jsp">We Eat and Drink All Night</a></h2>
+				<span class="fh5co-meta"><a href="chitiet?id=<%=list.get(i-1).getId() %>">Food &amp; Drink</a></span>
+				<h2 class="fh5co-article-title"><a href="chitiet?id=<%=list.get(i-1).getId() %>"><%=list.get(i-1).getTieude() %></a></h2>
 				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic2.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Food &amp; Drink</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">Beef Steak at Guatian Restaurant</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic3.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Travel</a>, <a href="single.html">Style</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">An Overlooking River at the East Cost</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic4.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Travel</a>, <a href="single.html">Style</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">A Wildlife In The Mountain of India</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
+			<%
+			
+			if(i % 4 == 0)
+			{
+				%>
+				<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+			
+			<%}
+			%>
+			<% 
+			
+			} 
+			
+			%>
+						
 
-			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+			
 
 
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic5.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Photography</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">We Took A Photo</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic6.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Travel</a>, <a href="single.html">Style</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">A Modernize Huge and Beautiful Building</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-
-
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic7.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Food &amp; Drinks</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">Enjoying the Native Juice Drink in Brazil</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic8.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Travel</a>, <a href="single.html">Style</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">Boat Travel in The Vietnam River</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+		
 
 
 
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic9.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Food &amp; Drink</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">We Eat and Drink All Night</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic10.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Food &amp; Drink</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">Beef Steak at Guatian Restaurant</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
 
 
+			
 
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic11.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Travel</a>, <a href="single.html">Style</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">An Overlooking River at the East Cost</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="single.html"><img src="images/pic12.jpg" alt="Image" class="img-responsive"></a>
-				</figure>
-				<span class="fh5co-meta"><a href="single.html">Travel</a>, <a href="single.html">Style</a></span>
-				<h2 class="fh5co-article-title"><a href="single.html">A Wildlife In The Mountain of India</a></h2>
-				<span class="fh5co-meta fh5co-date">March 6th, 2016</span>
-			</article>
+
+			
 
 		</div>
 	</div>
