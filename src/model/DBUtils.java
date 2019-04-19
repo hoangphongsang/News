@@ -8,7 +8,12 @@ import java.sql.SQLException;
 
 
 public class DBUtils {
-	 private static String DB_URL = "jdbc:mysql://localhost/news";
+		private String instanceConnectionName = trangtintuc-238016:us-central1:mysql;
+		private String databaseName = news;
+	 	private static String DB_URL = String.format(
+    "jdbc:mysql://%s/%s?cloudSqlInstance=%s"
+        + "&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false",104.197.214.164,databaseName,instanceConnectionName);
+	 
 	    private static String USER_NAME = "root";
 	    private static String PASSWORD = "hoangphongsang98";
 	    
